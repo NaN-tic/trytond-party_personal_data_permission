@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+      copyright notices and license terms. -->
+<tree>
+    <field name="party"/>
+    <field name="party_age"/>
+    <field name="issue_date"/>
+    <field name="state"/>
+</tree>

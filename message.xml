@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data grouped="1">
+        <record model="ir.message" id="invalid_formula">
+            <field name="text">Invalid formula "%(formula)s" in price list exception "%(line)s".</field>
+        </record>
+        <record model="ir.message" id="get_error">
+            <field name="text">An error occurred when fetching the signature: %(error)s.</field>
+        </record>
+        <record model="ir.message" id="error_delete">
+            <field name="text">Unexpected error, the signed PDF may or may not been fetched sucessfuly. Please try to go to the next stage normaly and check if the PDF is there.</field>
+        </record>
+        <record model="ir.message" id="party_no_vat">
+            <field name="text">The current signer does not have a VAT.</field>
+        </record>
+        <record model="ir.message" id="no_device_assigned">
+            <field name="text">Your user does not have a device assigned, please assign one. Current user: %(user)s Current IP: %(ip)s.</field>
+        </record>
+    </data>
+</tryton>

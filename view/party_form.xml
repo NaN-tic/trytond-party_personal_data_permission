@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<data>
+    <xpath expr="/form/field[@name='replaced_by']" position="after">
+        <newline/>
+        <label name="birthdate"/>
+        <field name="birthdate"/>
+        <label name="age"/>
+        <field name="age"/>
+        <label name="personal_data_permission"/>
+        <field name="personal_data_permission"/>
+    </xpath>
+</data>

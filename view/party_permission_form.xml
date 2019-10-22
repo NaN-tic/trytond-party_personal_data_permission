@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+      copyright notices and license terms. -->
+<form col="4">
+    <group colspan="2" col="2" yfill="1" yexpand="1" id="general">
+        <label name="party" colspan="1"/>
+        <field name="party" colspan="1"/>
+        <label name="party_age" colspan="1"/>
+        <field name="party_age" colspan="1"/>
+        <label name="guardian"/>
+        <field name="guardian"/>
+        <newline/>
+        <label name="issue_date"/>
+        <field name="issue_date"/>
+        <label name="revocation_date"/>
+        <field name="revocation_date"/>
+        <label name="accept_sms"/>
+        <field name="accept_sms"/>
+        <newline/>
+        <label name="document_pdf"/>
+        <field name="document_pdf"/>
+    </group>
+    <group colspan="2" col="2" id="img">
+        <field name="document_image" widget="image" height="600" width="550"/>
+    </group>
+    <group colspan="4" col="6" id="buttons">
+        <label name="state"/>
+        <field name="state"/>
+        <button string="Collect" name="collect"/>
+        <button string="Send" name="wait" icon="tryton-go-next"/>
+        <button string="Sign" name="sign" icon="tryton-go-next"/>
+        <button string="Revoke" name="revoke" icon="tryton-cancel" confirm="Are you sure you want to revoke this Personal Data Permission?  "/>
+    </group>
+</form>

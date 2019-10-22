@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="party_view_form">
+            <field name="model">party.party</field>
+            <field name="name">party_form</field>
+            <field name="inherit" ref="party.party_view_form"/>
+        </record>
+        <record model="ir.ui.view" id="party_view_tree">
+            <field name="model">party.party</field>
+            <field name="name">party_tree</field>
+            <field name="inherit" ref="party.party_view_tree"/>
+        </record>
+
+        <record model="ir.ui.view" id="party_permission_view_form">
+            <field name="model">party.personal_data.permission</field>
+            <field name="type">form</field>
+            <field name="name">party_permission_form</field>
+        </record>
+        <record model="ir.ui.view" id="party_permission_view_tree">
+            <field name="model">party.personal_data.permission</field>
+            <field name="type">tree</field>
+            <field name="name">party_permission_tree</field>
+        </record>
+
+        <!-- Device Configuration -->
+        <record model="ir.ui.view" id="party_permission_config_view_tree">
+            <field name="model">party.permission.device.configuration</field>
+            <field name="type">tree</field>
+            <field name="name">party_permission_config_tree</field>
+        </record>
+
+        <!-- Menus -->
+        <record model="ir.action.act_window" id="act_party_permissions">
+            <field name="name">Data access</field>
+            <field name="res_model">party.personal_data.permission</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_party_permissions_config">
+            <field name="name">Device Configuration</field>
+            <field name="res_model">party.permission.device.configuration</field>
+        </record>
+
+        <menuitem  id="menu_party_permissions"
+            parent="party.menu_party" sequence="10" name="Personal Data Permissions"
+            action="act_party_permissions"/>
+
+        <menuitem  id="menu_party_permissions_list"
+            parent="menu_party_permissions" sequence="10" name="Personal Data Permissions"
+            action="act_party_permissions" icon="tryton-list"/>
+        <menuitem  id="menu_party_permissions_config_list"
+            parent="menu_party_permissions" sequence="10"
+            name="Device Configuration"
+            action="act_party_permissions_config" icon="tryton-list"/>
+
+
+        <record model="ir.action.act_window.view" id="act_party_permission_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="party_permission_view_tree"/>
+            <field name="act_window" ref="act_party_permissions"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_party_permission_view2">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="party_permission_view_form"/>
+            <field name="act_window" ref="act_party_permissions"/>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_party_permission_config_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="party_permission_config_view_tree"/>
+            <field name="act_window" ref="act_party_permissions_config"/>
+        </record>
+
+        <!-- Reports -->
+        <record model="ir.action.report" id="report_personal_data_permission">
+            <field name="name">Data access</field>
+            <field name="name">Data access</field>
+            <field name="model">party.personal_data.permission</field>
+            <field name="report_name">party.personal_data.permission.report</field>
+            <field name="report">party_personal_data_permission/party_data_permission.jrxml</field>
+            <field name="extension">pdf</field>
+        </record>
+        <record model="ir.action.keyword" id="report_personal_data_permission_keyword">
+            <field name="keyword">form_print</field>
+            <field name="model">party.personal_data.permission,-1</field>
+            <field name="action" ref="report_personal_data_permission"/>
+        </record>
+
+        <record model="ir.action.act_window.domain" id="act_personal_data_permission_draft">
+            <field name="name">Draft</field>
+            <field name="sequence" eval="10"/>
+            <field name="domain" eval="[('state', '=', 'draft')]" pyson="1"/>
+            <field name="act_window" ref="act_party_permissions"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_personal_data_permission_waiting">
+            <field name="name">Waiting</field>
+            <field name="sequence" eval="20"/>
+            <field name="domain" eval="[('state', '=', 'waiting')]" pyson="1"/>
+            <field name="act_window" ref="act_party_permissions"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_personal_data_permission_signed">
+            <field name="name">Signed</field>
+            <field name="sequence" eval="30"/>
+            <field name="domain" eval="[('state', '=', 'signed')]" pyson="1"/>
+            <field name="act_window" ref="act_party_permissions"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_personal_data_permission_all">
+            <field name="name">All</field>
+            <field name="sequence" eval="9999"/>
+            <field name="domain"></field>
+            <field name="act_window" ref="act_party_permissions"/>
+        </record>
+
+        <record model="ir.model.button" id="personal_data_wait_button">
+            <field name="name">wait</field>
+            <field name="string">Wait</field>
+            <field name="model" search="[('model', '=', 'party.personal_data.permission')]"/>
+        </record>
+        <record model="ir.model.button" id="personal_data_collect_button">
+            <field name="name">collect</field>
+            <field name="string">Collect</field>
+            <field name="model" search="[('model', '=', 'party.personal_data.permission')]"/>
+        </record>
+        <record model="ir.model.button" id="personal_data_sign_button">
+            <field name="name">sign</field>
+            <field name="string">Sign</field>
+            <field name="model" search="[('model', '=', 'party.personal_data.permission')]"/>
+        </record>
+        <record model="ir.model.button" id="personal_data_revoke_button">
+            <field name="name">revoke</field>
+            <field name="string">Revoke</field>
+            <field name="model" search="[('model', '=', 'party.personal_data.permission')]"/>
+        </record>
+
+
+        <!-- Relate -->
+        <record model="ir.action.act_window" id="act_party_personal_data_permission">
+            <field name="name">Personal Data Permissions</field>
+            <field name="res_model">party.personal_data.permission</field>
+            <field name="domain" eval="[('party', '=', Eval('active_id'))]" pyson="1"/>
+        </record>
+        <record model="ir.action.keyword" id="act_party_personal_data_permission_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">party.party,-1</field>
+            <field name="action" ref="act_party_personal_data_permission"/>
+        </record>
+
+        <!-- Permissions -->
+        <record model="ir.ui.menu-res.group" id="menu_party_group_party_admin">
+            <field name="menu" ref="menu_party_permissions_config_list"/>
+            <field name="group" ref="party.group_party_admin"/>
+        </record>
+    </data>
+</tryton>

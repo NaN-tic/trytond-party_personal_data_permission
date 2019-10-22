@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="545" leftMargin="30" rightMargin="20" topMargin="10" bottomMargin="10" uuid="391f1574-381e-44ba-9612-55c216f55442">
+	<property name="ireport.zoom" value="1.2100000000000017"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="436"/>
+	<style name="defecto" isDefault="true" forecolor="#000000" backcolor="#FFFFFF" fill="Solid" vAlign="Middle" markup="none" pattern="" isBlankWhenNull="true" fontName="Calibri" fontSize="10" isPdfEmbedded="false"/>
+	<style name="textoscabecera" style="defecto" forecolor="#000000" backcolor="#CCFFCC" radius="10" fontName="Calibri" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="false">
+		<pen lineWidth="1.0" lineColor="#FF0066"/>
+	</style>
+	<style name="letramuy pequeña" style="defecto" forecolor="#000000" backcolor="#CCFFCC" radius="10" fontName="Calibri" fontSize="8" isBold="false" isPdfEmbedded="false">
+		<pen lineWidth="1.0" lineColor="#FF0066"/>
+	</style>
+	<style name="totales" style="defecto" fontName="Calibri" fontSize="11" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" isPdfEmbedded="false"/>
+	<style name="totales_bold" style="totales" fontName="Calibri" fontSize="11" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold" isPdfEmbedded="false"/>
+	<style name="line_title" style="defecto" hAlign="Left" vAlign="Top" fontName="Calibri" fontSize="11" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold" isPdfEmbedded="false">
+		<box topPadding="3" leftPadding="5" bottomPadding="12" rightPadding="5"/>
+	</style>
+	<style name="line_subtitle" style="defecto" hAlign="Left" vAlign="Top" fontName="Calibri" fontSize="11" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false">
+		<box topPadding="3" leftPadding="5" bottomPadding="12" rightPadding="5"/>
+	</style>
+	<style name="line_comment" style="defecto" hAlign="Center" vAlign="Top" fontName="Calibri" fontSize="11" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false">
+		<box topPadding="3" leftPadding="5" bottomPadding="12" rightPadding="5"/>
+	</style>
+	<style name="line_name" style="defecto" fontName="Calibri" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false">
+		<box bottomPadding="2"/>
+	</style>
+	<style name="line_subtotal" style="defecto" hAlign="Right" vAlign="Top" fontName="Calibri" fontSize="11" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold" isPdfEmbedded="false"/>
+	<style name="line_subsubtotal" style="defecto" hAlign="Right" vAlign="Top" fontName="Calibri" fontSize="11" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+	<style name="bold_italics" forecolor="#010101" backcolor="#CCFFCC" radius="10" hAlign="Left" vAlign="Middle" fontName="SansSerif" fontSize="9" isItalic="true" isUnderline="false" isStrikeThrough="false">
+		<pen lineColor="#010101"/>
+	</style>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TAXES_DS" class="java.lang.Object"/>
+	<parameter name="DATES_DS" class="java.lang.Object"/>
+	<parameter name="SUMMARY_LINES_DS" class="java.lang.Object"/>
+	<queryString language="xPath">
+		<![CDATA[]]>
+	</queryString>
+	<field name="lang" class="java.lang.String">
+		<fieldDescription><![CDATA[customer/lang/code]]></fieldDescription>
+	</field>
+	<field name="company_name" class="java.lang.String">
+		<fieldDescription><![CDATA[/data/record/company-company/party-party/name-name]]></fieldDescription>
+	</field>
+	<field name="company_vat_country" class="java.lang.String">
+		<fieldDescription><![CDATA[company/party/vat_country]]></fieldDescription>
+	</field>
+	<field name="company_vat_number" class="java.lang.String">
+		<fieldDescription><![CDATA[company/party/vat_number]]></fieldDescription>
+	</field>
+	<field name="company_street" class="java.lang.String">
+		<fieldDescription><![CDATA[/data/record/company-company/party-party/addresses-addresses/street-street]]></fieldDescription>
+	</field>
+	<field name="company_street2" class="java.lang.String">
+		<fieldDescription><![CDATA[company/party/addresses/streetbis]]></fieldDescription>
+	</field>
+	<field name="company_zip" class="java.lang.String">
+		<fieldDescription><![CDATA[/data/record/company-company/party-party/addresses-addresses/zip-zip]]></fieldDescription>
+	</field>
+	<field name="company_city" class="java.lang.String">
+		<fieldDescription><![CDATA[/data/record/company-company/party-party/addresses-addresses/city-city]]></fieldDescription>
+	</field>
+	<field name="company_state" class="java.lang.String">
+		<fieldDescription><![CDATA[company/party/addresses/subdivision/name]]></fieldDescription>
+	</field>
+	<field name="company_country_code" class="java.lang.String">
+		<fieldDescription><![CDATA[company/party/addresses/country/code]]></fieldDescription>
+	</field>
+	<field name="company_country" class="java.lang.Object">
+		<fieldDescription><![CDATA[/data/record/company-company/party-party/addresses-addresses/country-country/name-name]]></fieldDescription>
+	</field>
+	<field name="company_phone" class="java.lang.String">
+		<fieldDescription><![CDATA[/data/record/company-company/party-party/phone-phone]]></fieldDescription>
+	</field>
+	<field name="company_fax" class="java.lang.String">
+		<fieldDescription><![CDATA[/data/record/company-company/party-party/fax-fax]]></fieldDescription>
+	</field>
+	<field name="company_email" class="java.lang.String">
+		<fieldDescription><![CDATA[/data/record/company-company/party-party/email-email]]></fieldDescription>
+	</field>
+	<field name="company_website" class="java.lang.String">
+		<fieldDescription><![CDATA[/data/record/company-company/party-party/website-website]]></fieldDescription>
+	</field>
+	<field name="logo" class="java.lang.String">
+		<fieldDescription><![CDATA[company/logo]]></fieldDescription>
+	</field>
+	<field name="company_footer1" class="java.lang.String">
+		<fieldDescription><![CDATA[company/footer]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Long">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="party_name" class="java.lang.String">
+		<fieldDescription><![CDATA[party/name]]></fieldDescription>
+	</field>
+	<field name="guardian_name" class="java.lang.String">
+		<fieldDescription><![CDATA[guardian/name]]></fieldDescription>
+	</field>
+	<field name="party_vat" class="java.lang.String">
+		<fieldDescription><![CDATA[party/vat_number]]></fieldDescription>
+	</field>
+	<field name="guardian_vat" class="java.lang.String">
+		<fieldDescription><![CDATA[guardian/vat_number]]></fieldDescription>
+	</field>
+	<field name="accept_sms" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[accept_sms]]></fieldDescription>
+	</field>
+	<field name="date" class="java.util.Date">
+		<fieldDescription><![CDATA[issue_date]]></fieldDescription>
+	</field>
+	<sortField name="id"/>
+	<variable name="L" class="java.util.Locale" resetType="Group" resetGroup="invoice">
+		<variableExpression><![CDATA[$F{lang} != null && $F{lang}.length() == 5 ? new Locale( $F{lang}.substring(0,2), $F{lang}.substring(3,5) ) : ( $F{lang} != null && $F{lang}.length() == 2 ? new Locale( $F{lang}.substring(0,2) ) : $P{REPORT_LOCALE} )]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{lang} != null && $F{lang}.length() == 5 ? new Locale( $F{lang}.substring(0,2), $F{lang}.substring(3,5) ) : ( $F{lang} != null && $F{lang}.length() == 2 ? new Locale( $F{lang}.substring(0,2) ) : $P{REPORT_LOCALE} )]]></initialValueExpression>
+	</variable>
+	<variable name="ID_FACTURA" class="java.lang.Long" resetType="Group" resetGroup="invoice" calculation="First">
+		<variableExpression><![CDATA[$F{id}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{id}]]></initialValueExpression>
+	</variable>
+	<variable name="company_state" class="java.lang.String" resetType="Group" resetGroup="invoice">
+		<variableExpression><![CDATA[$F{company_state} != null && $F{company_state} != "" ? (
+    $F{company_state}.indexOf("/") > 0 ?
+        $F{company_state}.split("/")[0].trim() : $F{company_state}
+    ) : ""]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{company_state} != null && $F{company_state} != "" ? (     $F{company_state}.indexOf("/") > 0 ?         $F{company_state}.split("/")[0].trim() : $F{company_state}     ) : ""]]></initialValueExpression>
+	</variable>
+	<variable name="party_name" class="java.lang.String">
+		<variableExpression><![CDATA[$F{party_name}.split(' ')]]></variableExpression>
+	</variable>
+	<group name="invoice" isStartNewPage="true" isResetPageNumber="true" isReprintHeaderOnEachPage="true" footerPosition="StackAtBottom">
+		<groupHeader>
+			<band height="749" splitType="Stretch">
+				<textField isStretchWithOverflow="true">
+					<reportElement positionType="FixRelativeToBottom" x="-79" y="-121" width="179" height="20" uuid="10270e69-112a-49f1-9f56-c1070f6ff51d"/>
+					<textElement>
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{company_city}.toUpperCase()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="22" y="72" width="495" height="20" uuid="580ba44c-9750-42c4-9fce-0f72d87cfd85"/>
+					<textElement textAlignment="Center">
+						<font fontName="SansSerif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Full d'informació del pacient en la recollida de dades de caràcter personal]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement positionType="FixRelativeToBottom" x="11" y="101" width="518" height="32" uuid="ad1b9e82-392f-447b-8d2a-c64ab0ea7121"/>
+					<textElement>
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Segons el que disposen els articles 4, 5, 6 de la Llei Orgànica 15/1999 de 13 de desembre l'Entitat " + $F{company_name} + " us fa saber que disposa d'un Fitxer de Pacients"]]></textFieldExpression>
+				</textField>
+				<image>
+					<reportElement x="11" y="0" width="157" height="60" uuid="ef9b655b-c69a-463b-9ca3-4ae8bd0c64fb"/>
+					<imageExpression><![CDATA[$F{logo}]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement positionType="FixRelativeToBottom" x="11" y="163" width="518" height="46" uuid="9e68bb8b-095f-4a0d-ae9b-57cfa96a4714"/>
+					<textElement textAlignment="Justified">
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<text><![CDATA[Els destinataris de la informació són tots els serveis de l'Entiat, així com els estaments oficials públics i privats que per llei exigeixen la cessió d'aquest tipus de dades (Servei Català de la Salut, Institut Català de la Salut, Departament de Sanitat i Seguretat Social, Departament de Benestar Social ICASS, Ministeri de Sanitat, etc...)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="FixRelativeToBottom" x="11" y="209" width="518" height="32" uuid="30b9a1cc-dc41-4b03-966c-11e80ba2ac08"/>
+					<textElement textAlignment="Justified">
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<text><![CDATA[La negativa de falicitar les seves dades personals dificulatria enormement, i podria arribar a fer impossible, el ser assistit adequadament pel nostre servei.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="FixRelativeToBottom" x="11" y="241" width="518" height="24" uuid="f2244f57-5136-4d56-849f-5c4189a06ebd"/>
+					<textElement textAlignment="Justified">
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<text><![CDATA[En tot cas vostè té el dret a oposar-se, accedit, rectificar i cancel·lar les seves dades en l'ámbit reconegut per la Llei Orgànica 155/1999 de 13 de desembre.]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="326" width="545" height="1" uuid="ecce169d-805b-4ca1-b1a7-bfe8e6269f2b"/>
+				</line>
+				<rectangle>
+					<reportElement mode="Transparent" x="11" y="72" width="518" height="20" uuid="391d58cb-df81-4b98-a2e6-319f3591b131"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="11" y="326" width="100" height="20" uuid="7d5c82ca-9043-4cdd-b575-efe5c0187742"/>
+					<textElement>
+						<font fontName="SansSerif" isBold="true"/>
+					</textElement>
+					<text><![CDATA[A omplir per l'usuari:]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement mode="Transparent" x="323" y="327" width="221" height="20" uuid="cad49af2-a32c-464b-807e-d6aa8e2f4d9e"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="323" y="327" width="110" height="20" uuid="e0bb361d-b8fc-4272-a170-43252f061102"/>
+					<textElement textAlignment="Center">
+						<font fontName="SansSerif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[AUTORITZACIÓ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="438" y="326" width="106" height="20" backcolor="#C9FDFE" uuid="1bf01c0e-b41c-415f-923c-a59e4d3c4ab1"/>
+					<textElement>
+						<font fontName="SansSerif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[CESSIÓ DADES]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="11" y="356" width="518" height="45" uuid="e4130e95-9b3f-410e-9eaa-4dcbe579e125"/>
+					<textElement textAlignment="Justified">
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Per tot això estic d'acord i autorizo expressament a l'Entitat " + $F{company_name}
++ " perquè utilitzi les dades que siguin estrictament necessàries perquè l'entiat" +
+" amb la que tinc concertada la prestació de serveis medicosanitaris que sol·licito, " +
+" pugi procedit al pagament de tots els costos, acceptant que, en cas de revocar el consentiment, això significa que em " +
+" correspondrà a mi personalment fer-me càrrec de totes les despeses."]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="24" y="432" width="98" height="43" uuid="19afd7af-eebd-47b0-8981-a29c39477c26"/>
+					<textElement>
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<text><![CDATA[Nom: ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="24" y="475" width="99" height="38" uuid="9391a97b-63c7-4e89-9f80-c1da394adf19"/>
+					<textElement>
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<text><![CDATA[DNI/ passaport/ NIE:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="25" y="513" width="98" height="36" uuid="93d0e812-0dad-449c-ae58-8396c8efe75d"/>
+					<textElement>
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<text><![CDATA[Data:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="22" y="416" width="141" height="16" uuid="b1df1ab6-b5fe-4d52-b4bd-a0aaaa7aa33a"/>
+					<textElement>
+						<font fontName="SansSerif" size="8"/>
+					</textElement>
+					<text><![CDATA[Dades de l'interessat]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="360" y="529" width="100" height="20" uuid="f01dce93-9c93-4a08-b93e-121a23480fec"/>
+					<textElement textAlignment="Center">
+						<font fontName="SansSerif" size="8"/>
+					</textElement>
+					<text><![CDATA[Signatura]]></text>
+				</staticText>
+				<textField>
+					<reportElement positionType="FixRelativeToBottom" x="11" y="265" width="518" height="49" uuid="89f69379-7f98-48f5-b6e7-43fbce46ace3"/>
+					<textElement textAlignment="Justified" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA["El Responsable del Fitxer és l'Entiat " + $F{company_name} + ".  Per exercir els drets abans esmentats i per a qualsevol aclariment, pot dirigir-se per escrit a través d'una instància al director de l'Entitat " + $F{company_name} + ", " + $F{company_street} + " de " + $F{company_city} + " " + $F{company_zip}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="FixRelativeToBottom" x="11" y="133" width="518" height="30" uuid="d887a65f-04f4-484e-842c-72186e0d5e26"/>
+					<textElement>
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<text><![CDATA[La finalitat d'aquest fitxer és l'administració i gestió de tota la informació necessària per l'adequada atenció dels usuaris del nostre centre]]></text>
+				</staticText>
+				<line>
+					<reportElement x="433" y="326" width="1" height="20" uuid="d838e0f9-4480-429b-9a00-5427a10eeef2"/>
+				</line>
+				<textField>
+					<reportElement x="129" y="432" width="167" height="43" uuid="ccfa4d10-4d1f-4081-9c85-a60a96a2f8b2"/>
+					<textElement textAlignment="Left">
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{party_name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="129" y="475" width="167" height="38" uuid="dcd3e41e-a48e-4178-a59a-ebadf19a3ed4"/>
+					<textElement textAlignment="Left">
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{party_vat}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement mode="Transparent" x="22" y="432" width="496" height="117" uuid="0b7917db-fdcc-4b1e-bc59-b943f003a0bb"/>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="22" y="432" width="274" height="43" uuid="d1a082e8-b4fb-4ff2-8e80-8923db0f4d9c"/>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="22" y="475" width="274" height="38" uuid="03b1dd43-4f1e-4361-adc9-2bbfeb98f521"/>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="22" y="513" width="274" height="36" uuid="5e9c324d-13ac-4dad-9fc9-55a853c29649"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="302" y="663" width="210" height="20" uuid="47993042-ddc1-4795-ab19-a40ee3e87cb8"/>
+					<textElement textAlignment="Center">
+						<font fontName="SansSerif" size="8"/>
+					</textElement>
+					<text><![CDATA[Signatura tutor, en cas de minoria d'edat o incapacitat]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="129" y="609" width="167" height="38" uuid="7f7eb891-e361-4dcc-8e39-37fef132d391"/>
+					<textElement textAlignment="Left">
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{guardian_vat}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="24" y="566" width="98" height="43" uuid="9f77fe11-b578-4123-86b1-f89c6a4549b9"/>
+					<textElement>
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<text><![CDATA[Nom: ]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement mode="Transparent" x="22" y="609" width="274" height="38" uuid="0c7c80bc-ec76-4482-8fc7-e04b8122893d"/>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="22" y="566" width="496" height="117" uuid="64c0fe2f-f34c-490a-a0ff-a1656dc671fd"/>
+				</rectangle>
+				<textField>
+					<reportElement x="129" y="566" width="167" height="43" uuid="1bda04fd-4a85-4dc5-9e28-62e32eeaa905"/>
+					<textElement textAlignment="Left">
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{guardian_name}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="25" y="647" width="98" height="36" uuid="1b362748-6369-4b3e-aaeb-52543efb31db"/>
+					<textElement>
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<text><![CDATA[Data:]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement mode="Transparent" x="22" y="566" width="274" height="43" uuid="1358f916-55ba-4d01-8a86-a79afe759c64"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="24" y="609" width="99" height="38" uuid="1ac3ff68-89c3-4bfb-82cc-6b50bcede471"/>
+					<textElement>
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<text><![CDATA[DNI/ passaport/ NIE:]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement mode="Transparent" x="22" y="647" width="274" height="36" uuid="cefcd15c-b2d3-4283-825b-6898c1c3f752"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="12" y="694" width="505" height="20" uuid="5fb2d06d-e9ec-4be9-b07d-850f549f2628">
+						<printWhenExpression><![CDATA[$F{accept_sms}.booleanValue()]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="SansSerif"/>
+					</textElement>
+					<text><![CDATA[Accepto rebre SMS’s recordant la prova programada i la recollida de resultats]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="22" y="549" width="141" height="17" uuid="8c8cd22d-636b-496b-8024-038bac034057"/>
+					<textElement>
+						<font fontName="SansSerif" size="8"/>
+					</textElement>
+					<text><![CDATA[Dades del tutor]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement mode="Transparent" x="300" y="589" width="212" height="74" uuid="53fc6825-a56e-481c-a6cd-383995b8843b"/>
+					<graphicElement>
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
+				<line>
+					<reportElement x="122" y="567" width="1" height="116" uuid="e85a7193-015b-4832-a589-e78ccb0eec03"/>
+				</line>
+				<line>
+					<reportElement x="122" y="432" width="1" height="117" uuid="3308850f-c145-460e-a126-0b4cfd9fd077"/>
+				</line>
+				<staticText>
+					<reportElement x="11" y="694" width="507" height="20" uuid="0df84b0b-bde8-4b03-bb14-6e0afc68730e">
+						<printWhenExpression><![CDATA[!$F{accept_sms}]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="SansSerif"/>
+					</textElement>
+					<text><![CDATA[No accepto rebre SMS’s recordant la prova programada i la recollida de resultats.]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="129" y="513" width="167" height="36" uuid="027f6eb1-ab20-43f8-a0c4-720c3b22bbaa"/>
+					<textElement>
+						<font fontName="SansSerif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new SimpleDateFormat("dd'-'MM'-'yyyy").format($F{date})]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="129" y="647" width="167" height="36" uuid="0f908cca-f917-4063-9eaf-dbdf46eced47">
+						<printWhenExpression><![CDATA[!$F{guardian_name}.isEmpty()]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="SansSerif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new SimpleDateFormat("dd'-'MM'-'yyyy").format($F{date})]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<pageFooter>
+		<band height="73">
+			<textField>
+				<reportElement x="22" y="13" width="173" height="10" uuid="c5935b8f-c8f4-4360-82c5-1a51deb2f88d"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_street}  + " - " + $F{company_zip}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="22" y="23" width="173" height="10" uuid="0e1a7bd4-e920-42e6-ac2d-3bae56c92a6a"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Tel " + $F{company_phone} + " - Fax  " + $F{company_fax}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="22" y="33" width="173" height="10" uuid="d8f5d10d-6211-4cdc-9c4b-819f528b04c1"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_website} + " - " + $F{company_email}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
