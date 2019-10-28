@@ -1,0 +1,129 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:party.party,age:"
+msgid "Age"
+msgstr "Edat"
+
+msgctxt "field:party.party,birthdate:"
+msgid "Birthdate"
+msgstr "Data de naixament"
+
+msgctxt "field:party.party,personal_data_permission:"
+msgid "Personal Data Permission Signed"
+msgstr "Permís de dades personals signat"
+
+msgctxt "field:party.party,personal_identifier:"
+msgid "Personal Identifier"
+msgstr "Identificador personal"
+
+msgctxt "field:party.personal_data.permission,document_pdf:"
+msgid "Document"
+msgstr "Document"
+
+msgctxt "field:party.personal_data.permission,party:"
+msgid "Party"
+msgstr "Tercers"
+
+msgctxt "field:party.personal_data.permission,party_age:"
+msgid "Age"
+msgstr "Edat"
+
+msgctxt "help:party.personal_data.permission,accept_sms:"
+msgid "If marked the party accepts beeing sent information"
+msgstr "Si es marca, el partit accepta rebre informació enviada"
+
+msgctxt "model:ir.action,name:act_party_permissions"
+msgid "Data access"
+msgstr "Accés dades"
+
+msgctxt "model:ir.action,name:act_party_permissions_config"
+msgid "Device Configuration"
+msgstr "Configuració dispositius"
+
+msgctxt "model:ir.action,name:act_party_personal_data_permission"
+msgid "Personal Data Permissions"
+msgstr "Permisos personals"
+
+msgctxt "model:ir.action,name:report_personal_data_permission"
+msgid "Data access"
+msgstr "Accés dades"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_personal_data_permission_all"
+msgid "All"
+msgstr "Tots"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_personal_data_permission_draft"
+msgid "Draft"
+msgstr "Esborrany"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_personal_data_permission_signed"
+msgid "Signed"
+msgstr "Signat"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_personal_data_permission_waiting"
+msgid "Waiting"
+msgstr "En espera"
+
+msgctxt "model:ir.message,text:error_delete"
+msgid ""
+"Unexpected error, the signed PDF may or may not been fetched sucessfuly. "
+"Please try to go to the next stage normaly and check if the PDF is there."
+msgstr ""
+"Error inesperat, el pdf signat no s'ha pogut obtenir. Si us plau ves al "
+"següent pas i comprova que si està el PDF."
+
+msgctxt "model:ir.message,text:get_error"
+msgid "An error occurred when fetching the signature: %(error)s."
+msgstr "S'ha produït un error en recuperar la signatura:%(error)s."
+
+msgctxt "model:ir.message,text:invalid_formula"
+msgid "Invalid formula \"%(formula)s\" in price list exception \"%(line)s\"."
+msgstr ""
+"La fórmula \"%(formula)s no vàlida\" a l'excepció de la llista de preus "
+"\"%(line)s\"."
+
+msgctxt "model:ir.message,text:no_device_assigned"
+msgid ""
+"Your user does not have a device assigned, please assign one. Current user: "
+"%(user)s Current IP: %(ip)s."
+msgstr ""
+"El vostre usuari no té assignat un dispositiu, assigneu-ne un. Usuari "
+"actual:%(user)s IP actual:%(ip)s."
+
+msgctxt "model:ir.message,text:party_no_vat"
+msgid "The current signer does not have a VAT."
+msgstr "El signant actual no té DNI."
+
+msgctxt "model:ir.model.button,string:personal_data_collect_button"
+msgid "Collect"
+msgstr "Recollir"
+
+msgctxt "model:ir.model.button,string:personal_data_revoke_button"
+msgid "Revoke"
+msgstr "Revocar"
+
+msgctxt "model:ir.model.button,string:personal_data_sign_button"
+msgid "Sign"
+msgstr "Signar"
+
+msgctxt "model:ir.model.button,string:personal_data_wait_button"
+msgid "Wait"
+msgstr "En espera"
+
+msgctxt "model:ir.ui.menu,name:menu_party_permissions"
+msgid "Personal Data Permissions"
+msgstr "Permisos de dades personals"
+
+msgctxt "model:ir.ui.menu,name:menu_party_permissions_config_list"
+msgid "Device Configuration"
+msgstr "Configuració dispositius"
+
+msgctxt "model:ir.ui.menu,name:menu_party_permissions_list"
+msgid "Personal Data Permissions"
+msgstr "Permisos de dades personals"
