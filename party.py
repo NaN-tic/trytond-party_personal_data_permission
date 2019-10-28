@@ -149,7 +149,7 @@ class Party(metaclass=PoolMeta):
 
     @classmethod
     def personal_identifier_types(cls):
-        return ['es_nie', 'es_dni']
+        return ['es_nie', 'es_dni', 'eu_vat']
 
     @fields.depends('identifiers')
     def on_change_with_personal_identifier(self, name=None):
@@ -414,7 +414,6 @@ class PersonalDataPermission(Workflow, ModelSQL, ModelView):
         to_write = []
         for permission in permissions:
             helper = VidCloudHelper()
-
             if (not permission.guardian and not
                     permission.party.personal_identifier or permission.guardian
                     and not permission.guardian.personal_identifier):

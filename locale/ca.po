@@ -36,7 +36,7 @@ msgstr "Si es marca, el partit accepta rebre informació enviada"
 
 msgctxt "model:ir.action,name:act_party_permissions"
 msgid "Data access"
-msgstr "Accés dades"
+msgstr "Dades d'accés"
 
 msgctxt "model:ir.action,name:act_party_permissions_config"
 msgid "Device Configuration"
@@ -48,7 +48,7 @@ msgstr "Permisos personals"
 
 msgctxt "model:ir.action,name:report_personal_data_permission"
 msgid "Data access"
-msgstr "Accés dades"
+msgstr "Dades d'accés"
 
 msgctxt ""
 "model:ir.action.act_window.domain,name:act_personal_data_permission_all"

@@ -76,10 +76,10 @@ copyright notices and license terms. -->
         <!-- Reports -->
         <record model="ir.action.report" id="report_personal_data_permission">
             <field name="name">Data access</field>
-            <field name="name">Data access</field>
             <field name="model">party.personal_data.permission</field>
             <field name="report_name">party.personal_data.permission.report</field>
             <field name="report">party_personal_data_permission/party_data_permission.jrxml</field>
+           <field name="template_extension">jrxml</field>
             <field name="extension">pdf</field>
         </record>
         <record model="ir.action.keyword" id="report_personal_data_permission_keyword">
