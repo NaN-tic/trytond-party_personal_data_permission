@@ -174,7 +174,9 @@
 					<textFieldExpression><![CDATA["Segons el que disposen els articles 4, 5, 6 de la Llei Orgànica 15/1999 de 13 de desembre l'Entitat " + $F{company_name} + " us fa saber que disposa d'un Fitxer de Pacients"]]></textFieldExpression>
 				</textField>
 				<image>
-					<reportElement x="11" y="0" width="157" height="60" uuid="ef9b655b-c69a-463b-9ca3-4ae8bd0c64fb"/>
+					<reportElement x="11" y="0" width="157" height="60" uuid="ef9b655b-c69a-463b-9ca3-4ae8bd0c64fb">
+                        <printWhenExpression><![CDATA[$F{logo}.length()>0]]></printWhenExpression>
+                    </reportElement>
 					<imageExpression><![CDATA[$F{logo}]]></imageExpression>
 				</image>
 				<staticText>
