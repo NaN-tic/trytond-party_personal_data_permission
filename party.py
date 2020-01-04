@@ -364,7 +364,7 @@ class PersonalDataPermission(Workflow, ModelSQL, ModelView):
 
         subprocess.call([
                 'convert', '-quality', '90', '-density', '200x200',
-                '-background', 'white',
+                '-background', 'white', '-alpha', 'remove',
                 pdf_binary_file_path, jpg_path
                 ])
         return (jpg_path, jpg_name)
