@@ -76,8 +76,8 @@
 	<field name="company_street2" class="java.lang.String">
 		<fieldDescription><![CDATA[company/party/addresses/streetbis]]></fieldDescription>
 	</field>
-	<field name="company_zip" class="java.lang.String">
-		<fieldDescription><![CDATA[/data/record/company-company/party-party/addresses-addresses/zip-zip]]></fieldDescription>
+	<field name="company_postal_code" class="java.lang.String">
+		<fieldDescription><![CDATA[/data/record/company-company/party-party/addresses-addresses/postal_code-postal_code]]></fieldDescription>
 	</field>
 	<field name="company_city" class="java.lang.String">
 		<fieldDescription><![CDATA[/data/record/company-company/party-party/addresses-addresses/city-city]]></fieldDescription>
@@ -281,7 +281,7 @@
 					<textElement textAlignment="Justified" verticalAlignment="Middle">
 						<font fontName="SansSerif" size="9"/>
 					</textElement>
-					<textFieldExpression><![CDATA["El Responsable del Fitxer és l'Entiat " + $F{company_name} + ".  Per exercir els drets abans esmentats i per a qualsevol aclariment, pot dirigir-se per escrit a través d'una instància al director de l'Entitat " + $F{company_name} + ", " + $F{company_street} + " de " + $F{company_city} + " " + $F{company_zip}]]></textFieldExpression>
+					<textFieldExpression><![CDATA["El Responsable del Fitxer és l'Entiat " + $F{company_name} + ".  Per exercir els drets abans esmentats i per a qualsevol aclariment, pot dirigir-se per escrit a través d'una instància al director de l'Entitat " + $F{company_name} + ", " + $F{company_street} + " de " + $F{company_city} + " " + $F{company_postal_code}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement positionType="FixRelativeToBottom" x="11" y="133" width="518" height="30" uuid="d887a65f-04f4-484e-842c-72186e0d5e26"/>
@@ -436,7 +436,7 @@
 				<textElement textAlignment="Left">
 					<font fontName="SansSerif" size="7"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{company_street}  + " - " + $F{company_zip}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{company_street}  + " - " + $F{company_postal_code}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="22" y="23" width="173" height="10" uuid="0e1a7bd4-e920-42e6-ac2d-3bae56c92a6a"/>
