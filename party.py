@@ -188,10 +188,18 @@ class PersonalDataPermission(Workflow, ModelSQL, ModelView):
     revocation_date = fields.Date('Revocation Date', states={
             'invisible': Not(Equal(Eval('state'), 'revoked'))
             })
-    party = fields.Many2One('party.party', 'Party', required=True)
+    party = fields.Many2One('party.party', 'Party', required=True,
+        context={
+            'company': Eval('company'),
+            },
+        depends=['company'])
     guardian = fields.Many2One('party.party', 'Guardian', states={
             'required': Eval('party_age', 18) < 18,
-            })
+            },
+        context={
+            'company': Eval('company'),
+            },
+        depends=['company'])
     party_age = fields.Function(fields.Integer('Age', states={
                 'invisible': ~Bool(Eval('party'))}),
             'on_change_with_party_age')
