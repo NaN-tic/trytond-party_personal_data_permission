@@ -152,5 +152,17 @@ copyright notices and license terms. -->
             <field name="menu" ref="menu_party_permissions_config_list"/>
             <field name="group" ref="party.group_party_admin"/>
         </record>
+
+        <record model="ir.rule.group" id="rule_group_personal_data_permission">
+            <field name="name">User in company</field>
+            <field name="model" search="[('model', '=', 'party.personal_data.permission')]"/>
+            <field name="global_p" eval="True"/>
+        </record>
+        <record model="ir.rule" id="rule_personal_data_permission1">
+            <field name="domain"
+                eval="[('company', 'in', Eval('companies', []))]"
+                pyson="1"/>
+            <field name="rule_group" ref="rule_group_personal_data_permission"/>
+        </record>
     </data>
 </tryton>
