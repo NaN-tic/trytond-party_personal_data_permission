@@ -190,14 +190,14 @@ class PersonalDataPermission(Workflow, ModelSQL, ModelView):
             })
     party = fields.Many2One('party.party', 'Party', required=True,
         context={
-            'company': Eval('company'),
+            'company': Eval('company', -1),
             },
         depends=['company'])
     guardian = fields.Many2One('party.party', 'Guardian', states={
             'required': Eval('party_age', 18) < 18,
             },
         context={
-            'company': Eval('company'),
+            'company': Eval('company', -1),
             },
         depends=['company'])
     party_age = fields.Function(fields.Integer('Age', states={
