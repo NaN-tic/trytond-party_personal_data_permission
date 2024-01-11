@@ -208,7 +208,7 @@ class PersonalDataPermission(Workflow, ModelSQL, ModelView):
     document = fields.Many2One('ir.attachment', 'Document', states={
             'required': Eval('state') == 'signed',
             'readonly': Eval('state').in_(['signed', 'revoked']),
-            }, depends=['state'])
+            })
     document_pdf = fields.Function(fields.Binary('Document',
             states={
                 'readonly': Eval('state').in_(['signed', 'revoked']),
@@ -218,13 +218,13 @@ class PersonalDataPermission(Workflow, ModelSQL, ModelView):
         states={
             'required': Eval('state') == 'signed',
             'readonly': Eval('state').in_(['signed', 'revoked']),
-            }, depends=['state'])
+            })
 
     document_image = fields.Function(fields.Binary('Document Image',
             states={
                 'invisible': Eval('state').in_(['draft', 'waiting',
                         'rejected']),
-                }, depends=['state'], readonly=True),
+                }, readonly=True),
             'on_change_with_document_image')
 
     file_name = fields.Function(fields.Char('File name'),
