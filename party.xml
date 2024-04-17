@@ -116,22 +116,22 @@ copyright notices and license terms. -->
         <record model="ir.model.button" id="personal_data_wait_button">
             <field name="name">wait</field>
             <field name="string">Wait</field>
-            <field name="model" search="[('model', '=', 'party.personal_data.permission')]"/>
+            <field name="model">party.personal_data.permission</field>
         </record>
         <record model="ir.model.button" id="personal_data_collect_button">
             <field name="name">collect</field>
             <field name="string">Collect</field>
-            <field name="model" search="[('model', '=', 'party.personal_data.permission')]"/>
+            <field name="model">party.personal_data.permission</field>
         </record>
         <record model="ir.model.button" id="personal_data_sign_button">
             <field name="name">sign</field>
             <field name="string">Sign</field>
-            <field name="model" search="[('model', '=', 'party.personal_data.permission')]"/>
+            <field name="model">party.personal_data.permission</field>
         </record>
         <record model="ir.model.button" id="personal_data_revoke_button">
             <field name="name">revoke</field>
             <field name="string">Revoke</field>
-            <field name="model" search="[('model', '=', 'party.personal_data.permission')]"/>
+            <field name="model">party.personal_data.permission</field>
         </record>
 
 
@@ -155,7 +155,7 @@ copyright notices and license terms. -->
 
         <record model="ir.rule.group" id="rule_group_personal_data_permission">
             <field name="name">User in company</field>
-            <field name="model" search="[('model', '=', 'party.personal_data.permission')]"/>
+            <field name="model">party.personal_data.permission</field>
             <field name="global_p" eval="True"/>
         </record>
         <record model="ir.rule" id="rule_personal_data_permission1">
