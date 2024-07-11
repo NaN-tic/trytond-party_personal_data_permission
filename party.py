@@ -389,7 +389,6 @@ class PersonalDataPermission(Workflow, ModelSQL, ModelView):
             default = {}
         default = default.copy()
         default['document'] = None
-        default['document_image'] = None
         default['doc_gui'] = None
         default['accept_sms'] = True
         return super().copy(shipments, default=default)
