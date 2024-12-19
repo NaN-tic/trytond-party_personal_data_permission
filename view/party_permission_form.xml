@@ -27,8 +27,8 @@
         <label name="state"/>
         <field name="state"/>
         <button string="Collect" name="collect"/>
-        <button string="Send" name="wait" icon="tryton-go-next"/>
-        <button string="Sign" name="sign" icon="tryton-go-next"/>
+        <button string="Send" name="wait" icon="tryton-forward"/>
+        <button string="Sign" name="sign" icon="tryton-forward"/>
         <button string="Revoke" name="revoke" icon="tryton-cancel" confirm="Are you sure you want to revoke this Personal Data Permission?  "/>
     </group>
 </form>
