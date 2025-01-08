@@ -339,7 +339,7 @@ class PersonalDataPermission(Workflow, ModelSQL, ModelView):
                 type='data',
                 data=value,
                 resource=str(record))
-            attach, = Attachment.create([attach._save_values])
+            attach, = Attachment.create([attach._save_values()])
             records_to_write.extend(([record], {
                 'document': attach.id}))
 
@@ -540,7 +540,7 @@ class PersonalDataPermission(Workflow, ModelSQL, ModelView):
                 attach.type = 'data'
                 attach.data = base64.decodestring(res['DocContent'].encode('ascii'))
                 attach.resource = str(permission)
-                attach, = Attachment.create([attach._save_values])
+                attach, = Attachment.create([attach._save_values()])
                 documents_to_write.extend(([permission], {
                             'document': attach.id
                             }))
