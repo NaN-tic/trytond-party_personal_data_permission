@@ -94,7 +94,7 @@ msgid ""
 "%(user)s Current IP: %(ip)s."
 msgstr ""
 "Su usuario no tiene un dispositivo asignado, asigne uno. Usuario "
-"actual:%(usuario)s IP actual:%(ip)s."
+"actual:%(user)s IP actual:%(ip)s."
 
 msgctxt "model:ir.message,text:party_no_vat"
 msgid "The current signer does not have a VAT."
