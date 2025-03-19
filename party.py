@@ -561,6 +561,9 @@ class PersonalDataPermission(Workflow, ModelSQL, ModelView):
         to_write = []
 
         for permission in permissions:
+            if permission.document is None:
+                continue
+
             file_path, file_name = permission.to_jpg(permission.document)
 
             with open(file_path, 'rb') as f:
