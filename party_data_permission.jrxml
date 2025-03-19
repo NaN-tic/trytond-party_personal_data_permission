@@ -59,22 +59,16 @@
 		<![CDATA[]]>
 	</queryString>
 	<field name="lang" class="java.lang.String">
-		<fieldDescription><![CDATA[customer/lang/code]]></fieldDescription>
+		<fieldDescription><![CDATA[party/lang/code]]></fieldDescription>
 	</field>
 	<field name="company_name" class="java.lang.String">
 		<fieldDescription><![CDATA[/data/record/company-company/party-party/name-name]]></fieldDescription>
 	</field>
-	<field name="company_vat_country" class="java.lang.String">
-		<fieldDescription><![CDATA[company/party/vat_country]]></fieldDescription>
-	</field>
 	<field name="company_vat_number" class="java.lang.String">
-		<fieldDescription><![CDATA[company/party/vat_number]]></fieldDescription>
+		<fieldDescription><![CDATA[company/party/tax_identifier/code]]></fieldDescription>
 	</field>
 	<field name="company_street" class="java.lang.String">
 		<fieldDescription><![CDATA[/data/record/company-company/party-party/addresses-addresses/street-street]]></fieldDescription>
-	</field>
-	<field name="company_street2" class="java.lang.String">
-		<fieldDescription><![CDATA[company/party/addresses/streetbis]]></fieldDescription>
 	</field>
 	<field name="company_postal_code" class="java.lang.String">
 		<fieldDescription><![CDATA[/data/record/company-company/party-party/addresses-addresses/postal_code-postal_code]]></fieldDescription>
@@ -119,10 +113,10 @@
 		<fieldDescription><![CDATA[guardian/name]]></fieldDescription>
 	</field>
 	<field name="party_vat" class="java.lang.String">
-		<fieldDescription><![CDATA[party/vat_number]]></fieldDescription>
+		<fieldDescription><![CDATA[party/tax_identifier/code]]></fieldDescription>
 	</field>
 	<field name="guardian_vat" class="java.lang.String">
-		<fieldDescription><![CDATA[guardian/vat_number]]></fieldDescription>
+		<fieldDescription><![CDATA[guardian/tax_identifier/code]]></fieldDescription>
 	</field>
 	<field name="accept_sms" class="java.lang.Boolean">
 		<fieldDescription><![CDATA[accept_sms]]></fieldDescription>
