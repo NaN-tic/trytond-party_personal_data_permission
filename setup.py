@@ -9,9 +9,7 @@ from configparser import ConfigParser
 
 MODULE = 'party_personal_data_permission'
 PREFIX = 'nantic'
-MODULE2PREFIX = {
-    'jasper_reports': 'trytonspain',
-}
+MODULE2PREFIX = {}
 
 
 def read(fname):
@@ -41,7 +39,7 @@ major_version, minor_version, _ = version.split('.', 2)
 major_version = int(major_version)
 minor_version = int(minor_version)
 
-requires = ['requests']
+requires = []
 for dep in info.get('depends', []):
     if not re.match(r'(ir|res)(\W|$)', dep):
         prefix = MODULE2PREFIX.get(dep, 'trytond')
@@ -49,7 +47,6 @@ for dep in info.get('depends', []):
 requires.append(get_require_version('trytond'))
 
 tests_require = [
-    'mock',
     get_require_version('proteus'),
 ]
 
@@ -59,14 +56,7 @@ if minor_version % 2:
 else:
     branch = series
 
-dependency_links = [
-    ('hg+https://bitbucket.org/trytonspain/'
-        'trytond-jasper_reports@%(branch)s'
-        '#egg=trytonspain_jasper_reports-%(series)s' % {
-            'branch': branch,
-            'series': series,
-            }),
-]
+dependency_links = []
 
 if minor_version % 2:
     # Add development index for testing with proteus
