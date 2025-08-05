@@ -407,6 +407,9 @@ class PersonalDataPermission(Workflow, ModelSQL, ModelView):
             'party.personal_data.permission.report', type='report')
         DeviceConfig = pool.get('party.permission.device.configuration')
 
+        if not permissions:
+            return
+
         action_report, = ActionReport.search([
                 ('report_name', '=', 'party.personal_data.permission.report')
                 ])
