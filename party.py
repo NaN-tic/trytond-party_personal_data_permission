@@ -89,7 +89,7 @@ class VidCloudHelper(object):
         return (True, response.status_code, response.json())
 
     def get_document_status(self):
-        if not self.doc_gui:
+        if not self.ip or not self.doc_gui:
             raise Exception('DocGUI', 'No DOC GUI value for current process')
 
         url = self.ip + '/api/documentinfo/' + self.doc_gui
@@ -103,7 +103,7 @@ class VidCloudHelper(object):
     def delete_document(self, signed):
         path = '/api/%s/' % ('signeddocuments' if signed else 'documents')
 
-        if signed and not self.doc_gui:
+        if signed and not self.doc_gui or not self.ip:
             raise Exception('DocGUI', 'No DOC GUI value for current process')
 
         if signed:
