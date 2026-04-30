@@ -4,11 +4,14 @@ import subprocess
 import os
 import requests
 import base64
+from pathlib import Path
+from dominate.tags import div, h2, img, p, span, table, td, tr
 from trytond.model import ModelSQL, ModelView, fields, Workflow, MatchMixin
 from trytond.pool import PoolMeta, Pool
 from trytond.pyson import Eval, Not, Equal, Bool
 from trytond.transaction import Transaction
-from trytond.modules.jasper_reports.jasper import JasperReport
+from trytond.modules.html_report.dominate_report import DominateReport
+from trytond.modules.html_report.i18n import _
 from trytond.config import config
 from trytond.i18n import gettext
 from trytond.exceptions import UserError
@@ -605,8 +608,191 @@ class PersonalDataPermission(Workflow, ModelSQL, ModelView):
                 })
 
 
-class PersonalDataPermissionReport(JasperReport):
+class PersonalDataPermissionReport(DominateReport):
     __name__ = 'party.personal_data.permission.report'
+    side_margin = 2
+    _single = True
+
+    @classmethod
+    def css(cls, action, data, records):
+        css = super().css(action, data, records) or ''
+        css_path = Path(__file__).with_name('report.css')
+        with css_path.open(encoding='utf-8') as css_file:
+            return '%s\n%s' % (css, css_file.read())
+
+    @classmethod
+    def language(cls, records):
+        record = records[0] if records else None
+        if record and record.party and record.party.raw.lang:
+            return record.party.raw.lang.code
+        return Transaction().language or 'en'
+
+    @classmethod
+    def _value_or_empty(cls, value):
+        return value or ''
+
+    @classmethod
+    def _footer_line(cls, company):
+        parts = []
+        if company.party.raw.phone:
+            parts.append('%s %s' % (_('Tel.'), company.party.render.phone))
+        if company.party.raw.fax:
+            parts.append('%s %s' % (_('Fax'), company.party.render.fax))
+        return ' - '.join(parts)
+
+    @classmethod
+    def body(cls, action, data, records):
+        permission, = records
+        company = permission.company
+        guardian = permission.guardian if permission.raw.guardian else None
+        issue_date = (permission.render.issue_date
+            if permission.raw.issue_date else '')
+        address = company.party.addresses[0] if company.party.raw.addresses else None
+
+        root = div(cls='permission-report')
+        with root:
+            with div(cls='permission-report-header'):
+                with div(cls='permission-report-logo'):
+                    if company.render.logo:
+                        img(src=company.render.logo, cls='logo permission-report-logo-image')
+                with div(cls='permission-report-title-wrap'):
+                    h2(
+                        _('Patient information sheet for the collection of '
+                            'personal data'),
+                        cls='permission-report-title')
+
+            p(_(
+                'According to articles 4, 5 and 6 of Organic Law 15/1999 of '
+                'December 13, %(company_name)s informs you that it has a '
+                'Patients File.') % {
+                    'company_name': company.render.rec_name,
+                    }, cls='permission-report-paragraph')
+            p(_(
+                'The purpose of this file is the administration and '
+                'management of all the information required to properly care '
+                'for the users of our center.'),
+                cls='permission-report-paragraph')
+            p(_(
+                'The recipients of this information are all the services of '
+                'the entity, as well as the official public and private '
+                'bodies that by law require the transfer of this type of data '
+                '(Catalan Health Service, Catalan Health Institute, Health '
+                'and Social Security Department, Social Welfare Department '
+                'ICASS, Ministry of Health, etc.).'),
+                cls='permission-report-paragraph')
+            p(_(
+                'Refusing to provide your personal data would greatly hinder, '
+                'and could even make impossible, your proper care by our '
+                'service.'),
+                cls='permission-report-paragraph')
+            p(_(
+                'In any case, you have the right to object, access, rectify '
+                'and cancel your data within the scope recognized by Organic '
+                'Law 15/1999 of December 13.'),
+                cls='permission-report-paragraph')
+            p(_(
+                'The Data Controller is %(company_name)s. To exercise the '
+                'aforementioned rights and for any clarification, you may '
+                'write to the director of %(company_name)s at %(street)s, '
+                '%(postal_code)s %(city)s.') % {
+                    'company_name': company.render.rec_name,
+                    'street': cls._value_or_empty(
+                        address.render.street if address else ''),
+                    'postal_code': cls._value_or_empty(
+                        address.render.postal_code if address else ''),
+                    'city': cls._value_or_empty(
+                        address.render.city if address else ''),
+                    }, cls='permission-report-paragraph')
+
+            with div(cls='permission-report-consent-row'):
+                with div(cls='permission-report-consent-label'):
+                    span(_('To be completed by the user:'))
+                with div(cls='permission-report-consent-table-wrap'):
+                    with table(cls='permission-report-table permission-report-table-consent'):
+                        with tr():
+                            td(_('AUTHORIZATION'), cls='center strong nowrap')
+                            td(_('DATA TRANSFER'), cls='center strong nowrap')
+
+            p(_(
+                'For all these reasons, I agree and expressly authorize '
+                '%(company_name)s to use the data that are strictly necessary '
+                'so that the entity with which I have contracted the medical '
+                'and healthcare services requested may proceed to pay all the '
+                'costs, accepting that, in the event of revoking consent, I '
+                'will personally assume all expenses.') % {
+                    'company_name': company.render.rec_name,
+                    }, cls='permission-report-paragraph permission-report-paragraph-compact')
+
+            with table(cls='permission-report-table permission-report-table-form'):
+                with tr():
+                    td(_('Data of the interested party'),
+                        colspan='2',
+                        cls='section-title')
+                    td(_('Signature'),
+                        cls='signature-title')
+                with tr():
+                    td(_('Name:'), cls='label-cell')
+                    td(permission.party.render.rec_name,
+                        cls='value-cell')
+                    td('', rowspan='3', cls='signature-box')
+                with tr():
+                    td(_('ID / passport / NIE:'), cls='label-cell')
+                    td(permission.party.tax_identifier.render.code
+                        if permission.party.raw.tax_identifier else '',
+                        cls='value-cell')
+                with tr():
+                    td(_('Date:'), cls='label-cell')
+                    td(issue_date, cls='value-cell')
+
+            with table(cls='permission-report-table permission-report-table-form permission-report-table-guardian'):
+                with tr():
+                    td(_('Guardian data'),
+                        colspan='2',
+                        cls='section-title')
+                    td(_('Guardian signature, in case of minority of age or '
+                            'incapacity'), cls='signature-title')
+                with tr():
+                    td(_('Name:'), cls='label-cell')
+                    td(guardian.render.rec_name if guardian else '',
+                        cls='value-cell')
+                    td('', rowspan='3', cls='signature-box')
+                with tr():
+                    td(_('ID / passport / NIE:'), cls='label-cell')
+                    td((guardian.tax_identifier.render.code
+                            if guardian and guardian.raw.tax_identifier else ''),
+                        cls='value-cell')
+                with tr():
+                    td(_('Date:'), cls='label-cell')
+                    td(issue_date if guardian else '', cls='value-cell')
+
+            p(
+                _('I accept receiving SMS reminders for the scheduled test '
+                    'and the collection of results.')
+                if permission.raw.accept_sms else
+                _('I do not accept receiving SMS reminders for the scheduled '
+                    'test and the collection of results.'),
+                cls='permission-report-sms')
+
+            with div(cls='permission-report-footer'):
+                if address:
+                    p('%s - %s' % (
+                        cls._value_or_empty(address.render.street),
+                        cls._value_or_empty(address.render.postal_code)),
+                        cls='permission-report-footer-line')
+                footer_line = cls._footer_line(company)
+                if footer_line:
+                    p(footer_line, cls='permission-report-footer-line')
+                website_email = ' - '.join([
+                        value for value in [
+                            company.party.render.website if company.party.raw.website
+                            else '',
+                            company.party.render.email if company.party.raw.email
+                            else '',
+                            ] if value])
+                if website_email:
+                    p(website_email, cls='permission-report-footer-line')
+
+        return root
 
 
 class DeviceConfiguration(ModelView, ModelSQL, MatchMixin):
