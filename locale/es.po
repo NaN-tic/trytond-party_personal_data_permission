@@ -127,3 +127,91 @@ msgstr "Configuración del dispositivo"
 msgctxt "model:ir.ui.menu,name:menu_party_permissions_list"
 msgid "Personal Data Permissions"
 msgstr "Permisos de datos personales"
+
+msgctxt "html_report:h:"
+msgid "Patient information sheet for the collection of personal data"
+msgstr "Hoja de información del paciente para la recogida de datos de carácter personal"
+
+msgctxt "html_report:h:"
+msgid "According to articles 4, 5 and 6 of Organic Law 15/1999 of December 13, %(company_name)s informs you that it has a Patients File."
+msgstr "Según lo dispuesto en los artículos 4, 5 y 6 de la Ley Orgánica 15/1999 de 13 de diciembre, %(company_name)s le informa de que dispone de un Fichero de Pacientes."
+
+msgctxt "html_report:h:"
+msgid "The purpose of this file is the administration and management of all the information required to properly care for the users of our center."
+msgstr "La finalidad de este fichero es la administración y gestión de toda la información necesaria para la adecuada atención de los usuarios de nuestro centro."
+
+msgctxt "html_report:h:"
+msgid "The recipients of this information are all the services of the entity, as well as the official public and private bodies that by law require the transfer of this type of data (Catalan Health Service, Catalan Health Institute, Health and Social Security Department, Social Welfare Department ICASS, Ministry of Health, etc.)."
+msgstr "Los destinatarios de la información son todos los servicios de la entidad, así como los estamentos oficiales públicos y privados que por ley exigen la cesión de este tipo de datos (Servicio Catalán de la Salud, Instituto Catalán de la Salud, Departamento de Sanidad y Seguridad Social, Departamento de Bienestar Social ICASS, Ministerio de Sanidad, etc.)."
+
+msgctxt "html_report:h:"
+msgid "Refusing to provide your personal data would greatly hinder, and could even make impossible, your proper care by our service."
+msgstr "La negativa a facilitar sus datos personales dificultaría enormemente, e incluso podría hacer imposible, su adecuada atención por nuestro servicio."
+
+msgctxt "html_report:h:"
+msgid "In any case, you have the right to object, access, rectify and cancel your data within the scope recognized by Organic Law 15/1999 of December 13."
+msgstr "En todo caso usted tiene derecho a oponerse, acceder, rectificar y cancelar sus datos en el ámbito reconocido por la Ley Orgánica 15/1999 de 13 de diciembre."
+
+msgctxt "html_report:h:"
+msgid "The Data Controller is %(company_name)s. To exercise the aforementioned rights and for any clarification, you may write to the director of %(company_name)s at %(street)s, %(postal_code)s %(city)s."
+msgstr "El Responsable del Fichero es %(company_name)s. Para ejercer los derechos antes mencionados y para cualquier aclaración, puede dirigirse por escrito al director de %(company_name)s en %(street)s, %(postal_code)s %(city)s."
+
+msgctxt "html_report:h:"
+msgid "To be completed by the user:"
+msgstr "A cumplimentar por el usuario:"
+
+msgctxt "html_report:h:"
+msgid "AUTHORIZATION"
+msgstr "AUTORIZACIÓN"
+
+msgctxt "html_report:h:"
+msgid "DATA TRANSFER"
+msgstr "CESIÓN DE DATOS"
+
+msgctxt "html_report:h:"
+msgid "For all these reasons, I agree and expressly authorize %(company_name)s to use the data that are strictly necessary so that the entity with which I have contracted the medical and healthcare services requested may proceed to pay all the costs, accepting that, in the event of revoking consent, I will personally assume all expenses."
+msgstr "Por todo ello estoy de acuerdo y autorizo expresamente a %(company_name)s para que utilice los datos que sean estrictamente necesarios para que la entidad con la que tengo concertada la prestación de servicios médico-sanitarios que solicito pueda proceder al pago de todos los costes, aceptando que, en caso de revocar el consentimiento, me corresponderá personalmente hacerme cargo de todos los gastos."
+
+msgctxt "html_report:h:"
+msgid "Data of the interested party"
+msgstr "Datos del interesado"
+
+msgctxt "html_report:h:"
+msgid "Signature"
+msgstr "Firma"
+
+msgctxt "html_report:h:"
+msgid "Name:"
+msgstr "Nombre:"
+
+msgctxt "html_report:h:"
+msgid "ID / passport / NIE:"
+msgstr "DNI / pasaporte / NIE:"
+
+msgctxt "html_report:h:"
+msgid "Date:"
+msgstr "Fecha:"
+
+msgctxt "html_report:h:"
+msgid "Guardian data"
+msgstr "Datos del tutor"
+
+msgctxt "html_report:h:"
+msgid "Guardian signature, in case of minority of age or incapacity"
+msgstr "Firma del tutor, en caso de minoría de edad o incapacidad"
+
+msgctxt "html_report:h:"
+msgid "I accept receiving SMS reminders for the scheduled test and the collection of results."
+msgstr "Acepto recibir SMS recordando la prueba programada y la recogida de resultados."
+
+msgctxt "html_report:h:"
+msgid "I do not accept receiving SMS reminders for the scheduled test and the collection of results."
+msgstr "No acepto recibir SMS recordando la prueba programada y la recogida de resultados."
+
+msgctxt "html_report:h:"
+msgid "Tel."
+msgstr "Tel."
+
+msgctxt "html_report:h:"
+msgid "Fax"
+msgstr "Fax"
