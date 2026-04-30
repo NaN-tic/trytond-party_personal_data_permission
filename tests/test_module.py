@@ -30,8 +30,6 @@ class PartyPersonalDataPermissionTestCase(CompanyTestMixin, ModuleTestCase):
                     postal_code='08001',
                     city='Barcelona',
                     )]
-            company.party.phone = '935555555'
-            company.party.fax = '934444444'
             company.party.email = 'info@example.com'
             company.party.website = 'https://example.com'
             company.party.save()
