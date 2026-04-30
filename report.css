@@ -1,0 +1,155 @@
+.permission-report {
+  font-size: 9pt;
+  line-height: 1.18;
+}
+
+.permission-report-header {
+  position: relative;
+  width: 100%;
+  min-height: 2.9rem;
+  margin-bottom: 0.35rem;
+}
+
+.permission-report-logo {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 9rem;
+}
+
+.permission-report-logo-image {
+  max-width: 9rem;
+  max-height: 2.8rem;
+}
+
+.permission-report-title-wrap {
+  width: 100%;
+}
+
+.permission-report-title {
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: calc(100% - 10rem);
+  padding: 0.35rem 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.1;
+  border: 1px solid #000;
+}
+
+.permission-report-paragraph {
+  margin: 0 0 0.22rem 0;
+  text-align: justify;
+}
+
+.permission-report-paragraph-compact {
+  margin-bottom: 0.35rem;
+}
+
+.permission-report-consent-row {
+  display: table;
+  width: 100%;
+  margin: 0.5cm 0 0.15rem 0;
+  padding-top: 0.28rem;
+  border-top: 1px solid #000;
+}
+
+.permission-report-consent-label {
+  display: table-cell;
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+.permission-report-consent-table-wrap {
+  display: table-cell;
+  width: 16rem;
+  vertical-align: middle;
+}
+
+.permission-report-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.permission-report-table td,
+.permission-report-table th {
+  border: 1px solid #000;
+  padding: 0.28rem 0.35rem;
+  vertical-align: top;
+}
+
+.permission-report-table-consent td {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 8.4pt;
+  line-height: 1;
+  padding-top: 0.28rem;
+  padding-bottom: 0.28rem;
+}
+
+.permission-report-table-form {
+  margin-top: 0.35rem;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.permission-report-table-guardian {
+  margin-top: 0.28rem;
+}
+
+.permission-report-table .section-title {
+  font-size: 8.2pt;
+  font-weight: bold;
+}
+
+.permission-report-table .signature-title {
+  width: 41%;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 8.2pt;
+}
+
+.permission-report-table .label-cell {
+  width: 18%;
+  vertical-align: middle;
+}
+
+.permission-report-table .value-cell {
+  width: 41%;
+  min-height: 1.25rem;
+  vertical-align: middle;
+}
+
+.permission-report-table .signature-box {
+  height: 3.8rem;
+}
+
+.permission-report-sms {
+  margin: 0.4rem 0 0 0;
+}
+
+.permission-report-footer {
+  margin-top: 0.45rem;
+  padding-top: 0.28rem;
+  border-top: 1px solid #000;
+  font-size: 7.2pt;
+  line-height: 1.08;
+}
+
+.permission-report-footer-line {
+  margin: 0.06rem 0 0 0;
+}
+
+.center {
+  text-align: center;
+}
+
+.strong {
+  font-weight: bold;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
