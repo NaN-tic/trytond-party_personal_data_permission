@@ -632,6 +632,14 @@ class PersonalDataPermissionReport(DominateReport):
         return value or ''
 
     @classmethod
+    def _inline_text(cls, value):
+        value = cls._value_or_empty(value)
+        return (value.replace('<br>', ' ')
+            .replace('<br/>', ' ')
+            .replace('<br />', ' ')
+            .replace('\n', ' '))
+
+    @classmethod
     def _footer_line(cls, company):
         parts = []
         if company.party.raw.phone:
@@ -696,7 +704,7 @@ class PersonalDataPermissionReport(DominateReport):
                 'write to the director of %(company_name)s at %(street)s, '
                 '%(postal_code)s %(city)s.') % {
                     'company_name': company.render.rec_name,
-                    'street': cls._value_or_empty(
+                    'street': cls._inline_text(
                         address.render.street if address else ''),
                     'postal_code': cls._value_or_empty(
                         address.render.postal_code if address else ''),
@@ -776,7 +784,7 @@ class PersonalDataPermissionReport(DominateReport):
             with div(cls='permission-report-footer'):
                 if address:
                     p('%s - %s' % (
-                        cls._value_or_empty(address.render.street),
+                        cls._inline_text(address.render.street),
                         cls._value_or_empty(address.render.postal_code)),
                         cls='permission-report-footer-line')
                 footer_line = cls._footer_line(company)
