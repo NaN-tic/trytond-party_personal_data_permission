@@ -2,6 +2,7 @@
 # the full copyright notices and license terms.
 import subprocess
 import os
+import tempfile
 import requests
 import base64
 from pathlib import Path
@@ -356,10 +357,9 @@ class PersonalDataPermission(Workflow, ModelSQL, ModelView):
         unix "convert" utility and return a JPG binary which can be stored in
         a binary field.
         """
-        path = '/'.join(pdf_binary.file_path.split('/')[:-1])
-
-        jpg_name = pdf_binary.file_id + '.jpg'
-        jpg_path = path + '/' + jpg_name
+        fd, jpg_path = tempfile.mkstemp(suffix='.jpg')
+        os.close(fd)
+        jpg_name = os.path.basename(jpg_path)
 
         pdf_binary_file_path = pdf_binary.file_path
         identify_cmd = ['identify', '-format', '%n\n', pdf_binary_file_path]
