@@ -1,5 +1,6 @@
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
+from ast import literal_eval
 import subprocess
 import os
 import tempfile
@@ -76,7 +77,10 @@ class VidCloudHelper(object):
         }
         response = requests.request('POST', url, json=data,
             auth=(self.user, self.password))
-        response_text = eval(response.text)
+        try:
+            response_text = response.json()
+        except ValueError:
+            response_text = literal_eval(response.text)
         self.doc_gui = response_text['DocGUI']
         return self.doc_gui
 
