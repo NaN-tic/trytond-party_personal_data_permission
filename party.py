@@ -369,7 +369,10 @@ class PersonalDataPermission(Workflow, ModelSQL, ModelView):
         process = subprocess.Popen(head_cmd, stdin=identify_process.stdout,
             stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err = process.communicate()
-        frames = int(out) if not err else 0
+        try:
+            frames = int(out) if not err else 0
+        except (TypeError, ValueError):
+            frames = 0
         if frames > 1:
             pdf_binary_file_path += '[0]'
 
