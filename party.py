@@ -53,7 +53,9 @@ class VidCloudHelper(object):
         x, y, sx, sy = pos
 
         url = self.ip + '/api/documents'
-        doc = self._get_encoded_pdf(document[-2])
+        if isinstance(document, (tuple, list)):
+            document = document[1]
+        doc = self._get_encoded_pdf(document)
         data = {
             'DocContent': doc,
             'FileName': document_name,
@@ -457,9 +459,9 @@ class PersonalDataPermission(Workflow, ModelSQL, ModelView):
             helper.set_device_name(device_name)
 
             data['id'] = permission.id
-            # Render report and get bytes stream
-            data = PersonalDataPermissionReport.render(action_report, data,
-                data['model'], [permission.id])
+            data['output_format'] = 'pdf'
+            # Execute report and get the PDF bytes in the returned tuple
+            data = PersonalDataPermissionReport.execute([permission.id], data)
 
             # Pos X, Pos Y, Size X, Size Y in mm
             pos = (125, 160, 56, 20)
