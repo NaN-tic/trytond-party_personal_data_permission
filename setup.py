@@ -10,6 +10,7 @@ from configparser import ConfigParser
 MODULE = 'party_personal_data_permission'
 PREFIX = 'nantic'
 MODULE2PREFIX = {
+    'xgettext': 'nantic',
     'jasper_reports': 'nantic',
 }
 
