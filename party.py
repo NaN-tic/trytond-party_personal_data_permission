@@ -1,3 +1,4 @@
+
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
 import subprocess
@@ -12,11 +13,11 @@ from trytond.pool import PoolMeta, Pool
 from trytond.pyson import Eval, Not, Equal, Bool
 from trytond.transaction import Transaction
 from trytond.modules.html_report.dominate_report import DominateReport
-from trytond.modules.html_report.i18n import _
+from trytond.modules.xgettext import _
+
 from trytond.config import config
 from trytond.i18n import gettext
 from trytond.exceptions import UserError
-
 
 class VidCloudHelper(object):
 
@@ -127,7 +128,6 @@ class VidCloudHelper(object):
     def _get_encoded_pdf(self, data):
         return base64.b64encode(data)
 
-
 class Party(metaclass=PoolMeta):
     __name__ = 'party.party'
     birthdate = fields.Date('Birthdate')
@@ -184,7 +184,6 @@ class Party(metaclass=PoolMeta):
                 ('state', operator, 'signed'),
                 ])
         return [('id', 'in', [x.party.id for x in res])]
-
 
 class PersonalDataPermission(Workflow, ModelSQL, ModelView):
     'Party Personal Data Permission'
@@ -612,7 +611,6 @@ class PersonalDataPermission(Workflow, ModelSQL, ModelView):
                 'revocation_date': today
                 })
 
-
 class PersonalDataPermissionReport(DominateReport):
     __name__ = 'party.personal_data.permission.report'
     side_margin = 2
@@ -806,7 +804,6 @@ class PersonalDataPermissionReport(DominateReport):
                     p(website_email, cls='permission-report-footer-line')
 
         return root
-
 
 class DeviceConfiguration(ModelView, ModelSQL, MatchMixin):
     'Party Permission Device Configuration'
