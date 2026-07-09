@@ -79,7 +79,7 @@ class VidCloudHelper(object):
         }
         response = requests.request('POST', url, json=data,
             auth=(self.user, self.password))
-        response_text = eval(response.text)
+        response_text = response.json()
         self.doc_gui = response_text['DocGUI']
         return self.doc_gui
 
