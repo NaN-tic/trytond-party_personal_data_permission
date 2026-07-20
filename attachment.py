@@ -1,5 +1,5 @@
 from trytond.pool import PoolMeta
-from trytond.config import config
+import trytond.config as config
 from trytond.transaction import Transaction
 from trytond.model import fields
 
