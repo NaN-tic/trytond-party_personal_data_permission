@@ -16,7 +16,7 @@ from trytond.transaction import Transaction
 from trytond.modules.html_report.dominate_report import DominateReport
 from trytond.modules.xgettext import _
 
-from trytond.config import config
+import trytond.config as config
 from trytond.i18n import gettext
 from trytond.exceptions import UserError
 
