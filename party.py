@@ -35,6 +35,14 @@ class VidCloudHelper(object):
     def set_device_name(self, name):
         self.device_name = name
 
+    def _check_configuration(self, document=False):
+        if not self.ip:
+            raise UserError(gettext(
+                'party_personal_data_permission.missing_vidsigner_connection'))
+        if document and not self.doc_gui:
+            raise UserError(gettext(
+                'party_personal_data_permission.missing_vidsigner_document'))
+
     def get_devices(self):
         if not self.ip:
             return []
@@ -51,6 +59,7 @@ class VidCloudHelper(object):
         document -- pdf to be signed encoded in base64
         document_name -- Name of the document
         """
+        self._check_configuration()
         x, y, sx, sy = pos
 
         url = self.ip + '/api/documents'
@@ -88,8 +97,7 @@ class VidCloudHelper(object):
         return self.doc_gui
 
     def get_signed_pdf(self):
-        if not self.doc_gui:
-            raise Exception('DocGUI', 'No DOC GUI value for current process')
+        self._check_configuration(document=True)
 
         url = self.ip + '/api/signeddocuments/' + self.doc_gui
         response = requests.request('GET', url=url,
@@ -100,8 +108,7 @@ class VidCloudHelper(object):
         return (True, response.status_code, response.json())
 
     def get_document_status(self):
-        if not self.ip or not self.doc_gui:
-            raise Exception('DocGUI', 'No DOC GUI value for current process')
+        self._check_configuration(document=True)
 
         url = self.ip + '/api/documentinfo/' + self.doc_gui
         response = requests.request('GET', url=url,
@@ -112,10 +119,8 @@ class VidCloudHelper(object):
         return (True, (response.json()))
 
     def delete_document(self, signed):
+        self._check_configuration(document=signed)
         path = '/api/%s/' % ('signeddocuments' if signed else 'documents')
-
-        if signed and not self.doc_gui or not self.ip:
-            raise Exception('DocGUI', 'No DOC GUI value for current process')
 
         if signed:
             url = self.ip + path + self.doc_gui
