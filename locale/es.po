@@ -215,3 +215,11 @@ msgstr "Tel."
 msgctxt "xgettext:x:"
 msgid "Fax"
 msgstr "Fax"
+
+msgctxt "model:ir.message,text:missing_vidsigner_connection"
+msgid "The VidSigner connection URL is not configured. Set the connection option in the vidsigner section of the server configuration."
+msgstr "No se ha configurado la URL de conexión de VidSigner. Establezca la opción connection en la sección vidsigner de la configuración del servidor."
+
+msgctxt "model:ir.message,text:missing_vidsigner_document"
+msgid "There is no VidSigner document identifier. Send the document for signature before checking or retrieving it."
+msgstr "No hay ningún identificador de documento de VidSigner. Envíe el documento a firmar antes de consultarlo o recuperarlo."
